@@ -9,6 +9,7 @@ body {
     background: #5a5a5a;
     color: #333;
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 /* HEADER */
@@ -55,7 +56,9 @@ nav a:hover {
     display: grid;
     grid-template-columns: 1fr;
     gap: 40px;
-    padding: 40px 10%;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin-left: 0;
 }
 
 /* SECTIONS */
@@ -97,6 +100,7 @@ nav a:hover {
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     transition: transform 0.3s;
 }
+
 
 .card:hover {
     transform: translateY(-5px);
