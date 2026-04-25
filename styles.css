@@ -1,11 +1,12 @@
+/* RESET */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
+    font-family: Arial, Helvetica, sans-serif;
     background: #5a5a5a;
     color: #333;
     line-height: 1.6;
@@ -22,7 +23,7 @@ header {
 }
 
 header h1 {
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
 }
 
 header p {
@@ -30,10 +31,11 @@ header p {
     opacity: 0.9;
 }
 
-/* (FLEXBOX) */
+/* NAV */
 nav {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 20px;
     background: #4b0082;
     padding: 15px;
@@ -51,45 +53,48 @@ nav a:hover {
     color: #d8b4fe;
 }
 
-/* MAIN LAYOUT (CSS GRID) */
+/* MAIN CONTAINER */
 .container {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 40px;
-    padding: 40px 20px;
+    width: 100%;
     max-width: 1200px;
-    margin-left: 0;
+    margin: 0 auto; /* center */
+    padding: 30px 20px;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
 }
 
 /* SECTIONS */
 .section {
     background: white;
-    padding: 25px;
+    padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
 .section h2 {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     color: #6a0dad;
 }
 
-/* IMAGE BOX */
+/* IMAGES */
 .image-box {
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-    object-fit: contain;
-    background: #fafafa;
-    border-radius: 10px;
     margin: 15px 0;
 }
 
-/* PROJECTS (FLEXBOX GRID)*/
+.image-box img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+}
+
+/* PROJECTS */
 .projects {
     display: flex;
-    gap: 20px;
     flex-wrap: wrap;
+    gap: 20px;
 }
 
 .card {
@@ -98,15 +103,14 @@ nav a:hover {
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    transition: transform 0.3s;
+    transition: transform 0.3s ease;
 }
-
 
 .card:hover {
     transform: translateY(-5px);
 }
 
-/* SKILLS (FLEXBOX) */
+/* SKILLS */
 .skills {
     display: flex;
     flex-wrap: wrap;
@@ -116,9 +120,9 @@ nav a:hover {
 .skill {
     background: #6a0dad;
     color: white;
-    padding: 10px 15px;
+    padding: 8px 14px;
     border-radius: 20px;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
 }
 
 /* CONTACT */
@@ -135,39 +139,25 @@ footer {
     margin-top: 40px;
 }
 
-/* MEDIA QUERIES (MOBILE, I dont know what to do with this) */
+/* TABLET */
 @media (max-width: 768px) {
-
-    header h1 {
-        font-size: 2rem;
+    nav {
+        flex-direction: column;
     }
 
     .container {
-        padding: 20px;
-    }
-
-    nav {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .projects {
-        flex-direction: column;
-    }
-
-    .card {
-        width: 100%;
+        grid-template-columns: 1fr;
     }
 }
 
+/* MOBILE */
 @media (max-width: 480px) {
-
     header {
         padding: 30px 15px;
     }
 
     .skill {
-        font-size: 0.8rem;
-        padding: 8px 12px;
+        font-size: 0.75rem;
+        padding: 6px 10px;
     }
 }
